@@ -52,6 +52,23 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Totem app specific colors
+				login: {
+					bg: 'hsl(var(--login-bg))',
+					card: 'hsl(var(--login-card))',
+					foreground: 'hsl(var(--login-foreground))'
+				},
+				admin: {
+					bg: 'hsl(var(--admin-bg))',
+					card: 'hsl(var(--admin-card))',
+					foreground: 'hsl(var(--admin-foreground))'
+				},
+				chat: {
+					'bg-start': 'hsl(var(--chat-bg-start))',
+					'bg-end': 'hsl(var(--chat-bg-end))',
+					card: 'hsl(var(--chat-card))',
+					foreground: 'hsl(var(--chat-foreground))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
