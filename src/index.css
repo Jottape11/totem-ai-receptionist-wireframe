@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Totem Reception App Design System */
+/* Totem Reception App Design System - Premium Experience */
 
 @layer base {
   :root {
@@ -18,29 +18,35 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Login screen - Dark blue theme */
-    --login-bg: 220 50% 15%;
-    --login-card: 220 45% 20%;
-    --login-foreground: 210 40% 98%;
+    /* Premium Chat Login - AI Interface */
+    --chat-login-bg-start: 235 50% 15%;
+    --chat-login-bg-end: 255 45% 25%;
+    --chat-login-card: 240 45% 12%;
+    --chat-login-foreground: 210 40% 98%;
+    --chat-login-accent: 250 70% 60%;
+    --chat-login-secondary: 240 30% 25%;
 
-    /* Admin screen - Light theme */
-    --admin-bg: 210 40% 98%;
+    /* Admin screen - Elegant theme */
+    --admin-bg: 216 25% 97%;
     --admin-card: 0 0% 100%;
     --admin-foreground: 222.2 84% 4.9%;
+    --admin-accent: 220 15% 95%;
+    --admin-border: 220 13% 91%;
 
-    /* Chat screen - Purple gradient theme */
+    /* Chat screen - Enhanced purple gradient */
     --chat-bg-start: 270 50% 25%;
     --chat-bg-end: 290 60% 35%;
     --chat-card: 270 30% 20%;
     --chat-foreground: 280 20% 95%;
 
-    /* Primary colors */
-    --primary: 220 50% 15%;
+    /* Premium color palette */
+    --primary: 235 50% 15%;
     --primary-foreground: 210 40% 98%;
+    --primary-glow: 240 70% 70%;
 
     /* Secondary colors */
-    --secondary: 270 50% 25%;
-    --secondary-foreground: 280 20% 95%;
+    --secondary: 250 70% 60%;
+    --secondary-foreground: 0 0% 100%;
 
     /* Accent colors */
     --accent: 290 60% 35%;
@@ -55,9 +61,23 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 220 50% 15%;
+    --ring: 235 50% 15%;
 
-    --radius: 0.5rem;
+    /* Premium gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-chat: linear-gradient(135deg, hsl(var(--chat-login-bg-start)), hsl(var(--chat-login-bg-end)));
+    --gradient-accent: linear-gradient(90deg, hsl(var(--secondary)), hsl(var(--accent)));
+
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --shadow-card: 0 4px 20px -2px hsl(var(--primary) / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -121,6 +141,118 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Premium typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-3xl lg:text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl lg:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl lg:text-2xl;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-chat {
+    background: var(--gradient-chat);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+
+  .text-gradient {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out;
+  }
+
+  .hover-lift {
+    @apply transition-smooth hover:scale-105 hover:shadow-elegant;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--primary-glow) / 0.3); }
+  50% { box-shadow: 0 0 30px hsl(var(--primary-glow) / 0.6); }
+}
+
+@keyframes slide-up {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes fade-in {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
   }
 }
